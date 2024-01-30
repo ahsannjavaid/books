@@ -1,10 +1,54 @@
-# Getting Started with Create React App
+# What is 'Books'?
+
+Assalam-u-Alaikum!
+
+It is a simple project where user can Add, View and Delete some books. It is a beginner level project to understand the MVC architecture at backend side and Add, View & Delete operations in MERN Stack.
+
+## Summary/Flow of the Project:
+
+1. User can add a book by visiting **Add Book** tab in Navbar.
+2. User can see and delete books at Home screen.
+
+
+# Hosting
+
+I have used free services for the hosting of this project.
+
+## Client (client)
+
+The front-end has been hosted on [Netlify](https://www.netlify.com/).
+
+## Server (server)
+
+The back-end has been hosted on [Render](https://www.render.com/).
+
+
+# Server: Node.js, Express.js and MongoDB
+
+## Available Scripts
+
+First of all install dependencies by typing following command in **server** directory:
+
+### `npm install`
+
+In the server directory, you can run:
+
+### `npm start`
+
+Runs the server in the development mode at URL [http://localhost:5000](http://localhost:5000).
+
+
+# Client: Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+First of all install dependencies by typing following command in **client** directory:
+
+### `npm install`
+
+In the client directory, you can run:
 
 ### `npm start`
 
