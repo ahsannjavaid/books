@@ -8,19 +8,10 @@ import { bookEndpoints } from "../../apis/endpoints/bookEndpoints";
 const Home = () => {
   let [books, setBooks] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
-  const [firstLoad, setFirstLoad] = useState(1);
+  const [ serverStarted, setServerStarted ] = useState(sessionStorage.getItem("serverStarted") ? true : false);
 
   useEffect(() => {
-    const hasLoadedBefore = localStorage.getItem('hasLoadedBefore');
-
-    if (hasLoadedBefore) {
-      setFirstLoad(0);
-    } else {
-      // If it's the first time, show an apology and set the flag in local storage
-      localStorage.setItem('hasLoadedBefore', 1);
-    }
-
-    const GetBooks = async () => {
+      const GetBooks = async () => {
       try {
         const responseData = await fetchResponse(
           bookEndpoints.getBooks(),
@@ -29,6 +20,8 @@ const Home = () => {
         );
         setBooks(responseData.books);
         if (!responseData.success) alert(responseData.message);
+        setServerStarted(true);
+        sessionStorage.setItem("serverStarted", 1);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -36,7 +29,7 @@ const Home = () => {
       }
     };
     GetBooks();
-  }, []);
+  }, [setServerStarted]);
 
   const DeleteBook = async (id) => {
     setIsLoading(true);
@@ -55,7 +48,7 @@ const Home = () => {
     }
   };
 
-  if (isLoading) return <Spinner showingApologoies={firstLoad ? true : false} />;
+  if (isLoading) return <Spinner showingApologoies={!serverStarted ? true : false} />;
 
   return (
     <Layout>
