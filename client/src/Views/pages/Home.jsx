@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import Spinner from "../components/Spinner";
-import { fetchResponse } from "../../apis/service";
-import { bookEndpoints } from "../../apis/endpoints/bookEndpoints";
+import { fetchResponse } from "src/apis/service";
+import { bookEndpoints } from "src/apis/endpoints/bookEndpoints";
+
 
 const Home = () => {
   let [books, setBooks] = useState([]);
